@@ -35,3 +35,7 @@ lerna-debug.log*
 
 # Keys and secrets
 /src/config.ts
+/amaem.db
+/private.key
+/public.key
+

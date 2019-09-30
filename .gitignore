@@ -38,4 +38,5 @@ lerna-debug.log*
 /amaem.db
 /private.key
 /public.key
+/rrhh.sql
 

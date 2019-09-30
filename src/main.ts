@@ -5,6 +5,7 @@ import { NestExpressApplication } from '@nestjs/platform-express';
 import * as session from 'express-session';
 import * as passport from 'passport';
 import * as cookieParser from 'cookie-parser';
+import { ExpressSessionParms } from './config';
 
 async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
@@ -16,14 +17,8 @@ async function bootstrap() {
     Logger.log( 'Using Proxy at ' + globalTunnel.proxyUrl );
   }
 
-
   // El proveedor de Microsoft necesita una session 
-  app.use(session({
-    secret: 'amaem-secret',
-    name: 'the-secret-winner',
-    resave: true,
-    saveUninitialized: true
-  }));
+  app.use(session(ExpressSessionParms));
 
   app.use(passport.initialize());
   app.use(passport.session());
